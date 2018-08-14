@@ -7,7 +7,7 @@ defmodule Alixir.Utils do
     {"~", "%7E"},
   ]
 
-  def sign(key, string_to_sign) do
+  def sign(string_to_sign, key) do
     :crypto.hmac(:sha, key, string_to_sign) |> encode64()
   end
 
