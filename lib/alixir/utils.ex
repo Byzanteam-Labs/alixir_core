@@ -12,12 +12,12 @@ defmodule Alixir.Utils do
   end
 
   # POP 协议签名算法
-  def str_encode({:pop, str}) do
-    Enum.reduce(@encoding_mappings, str_encode(str), fn({origin, target}, converted) ->
+  def url_encode(str, :pop) do
+    Enum.reduce(@encoding_mappings, url_encode(str), fn({origin, target}, converted) ->
       String.replace(converted, origin, target)
     end)
   end
-  def str_encode(str) do
+  def url_encode(str) do
     encode64(str)
   end
 
