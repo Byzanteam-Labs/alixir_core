@@ -12,14 +12,15 @@ defmodule AlixirCore.MixProject do
       homepage_url: @project_host,
       elixir: "~> 1.6",
       start_permanent: Mix.env() == :prod,
-      deps: deps()
+      deps: deps(),
+      description: description(),
+      package: package(),
     ]
   end
 
-  # Run "mix help compile.app" to learn about applications.
   def application do
     [
-      extra_applications: [:logger]
+      extra_applications: [:timex]
     ]
   end
 
@@ -28,6 +29,20 @@ defmodule AlixirCore.MixProject do
     [
       {:httpoison, "~> 1.2.0"},
       {:timex, "~> 3.3"},
+    ]
+  end
+
+  defp description do
+    "Aliyun Core modules."
+  end
+
+  defp package do
+    [
+      name: :alixir_core,
+      files: ["libs", "mix.exs", "README.md"],
+      maintainers: ["fahchen"],
+      licenses: ["MIT"],
+      links: %{"GitHub" => @project_host}
     ]
   end
 end
