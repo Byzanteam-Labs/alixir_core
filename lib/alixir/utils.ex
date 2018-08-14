@@ -25,7 +25,7 @@ defmodule Alixir.Utils do
     Timex.format!(Timex.now, "%a, %d %b %Y %H:%M:%S GMT", :strftime)
   end
 
-  def canonicalized_parameters(parameters) do
+  def canonicalize_parameters(parameters) do
     parameters
     |> Enum.map(fn {key, value} -> "#{key |> to_string() |> String.downcase()}:#{value}" end)
     |> Enum.sort()
