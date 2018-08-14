@@ -11,14 +11,14 @@ defmodule Alixir.Utils do
     :crypto.hmac(:sha, key, string_to_sign) |> encode64()
   end
 
-  def url_encode(str) do
-    encode64(str)
-  end
   # POP 协议签名算法
   def url_encode({:pop, str}) do
-    Enum.reduce(@encoding_mappings, url_encode(str), fn(origin, target) ->
-      String.replace(origin, target)
+    Enum.reduce(@encoding_mappings, url_encode(str), fn({origin, target}, converted) ->
+      String.replace(converted, origin, target)
     end)
+  end
+  def url_encode(str) do
+    encode64(str)
   end
 
   def gmt_now do
