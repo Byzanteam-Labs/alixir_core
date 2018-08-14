@@ -24,4 +24,8 @@ defmodule Alixir.Utils do
   def gmt_now do
     Timex.format!(Timex.now, "%a, %d %b %Y %H:%M:%S GMT", :strftime)
   end
+
+  def iso_8601_extended_gmt_now do
+    Timex.format!(Timex.now("GMT"), "{ISO:Extended:Z}")
+  end
 end
