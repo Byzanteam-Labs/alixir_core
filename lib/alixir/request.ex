@@ -16,7 +16,7 @@ defmodule Alixir.Request do
   @spec perform(%Request{}) :: {:ok, status_code, body} | {:error, reason}
   def perform(
     %Request{http_method: http_method, url: url, params: params, headers: headers, body: body}
-  ) when http_method in ~w{put delete}a do
+  ) do
     case HTTPoison.request(http_method, url, body, headers, params: List.wrap(params)) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         {:ok, 200, body}
