@@ -18,7 +18,7 @@ defmodule Alixir.Utils do
     end)
   end
   def url_encode(str) do
-    encode64(str)
+    URI.encode_www_form(str)
   end
 
   def gmt_now do
