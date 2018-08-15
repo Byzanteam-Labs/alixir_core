@@ -4,7 +4,7 @@ defmodule Alixir.Utils do
   @encoding_mappings [
     {"+", "%20"},
     {"*", "%2A"},
-    {"~", "%7E"},
+    {"%7E", "~"},
   ]
 
   def sign(string_to_sign, key) do
