@@ -29,6 +29,7 @@ defmodule AlixirCore.MixProject do
     [
       {:httpoison, "~> 1.2.0"},
       {:timex, "~> 3.3"},
+      {:elixir_uuid, "~> 1.2"},
     ]
   end
 
