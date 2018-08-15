@@ -30,6 +30,8 @@ defmodule AlixirCore.MixProject do
       {:httpoison, "~> 1.2.0"},
       {:timex, "~> 3.3"},
       {:elixir_uuid, "~> 1.2"},
+
+      {:ex_doc, "~> 0.18.0", only: :dev}
     ]
   end
 
@@ -40,7 +42,7 @@ defmodule AlixirCore.MixProject do
   defp package do
     [
       name: :alixir_core,
-      files: ["libs", "mix.exs", "README.md"],
+      files: ["lib", "mix.exs", "README.md"],
       maintainers: ["fahchen"],
       licenses: ["MIT"],
       links: %{"GitHub" => @project_host}
