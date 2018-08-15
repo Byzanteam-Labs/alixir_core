@@ -40,7 +40,7 @@ defmodule AlixirCore.MixProject do
   defp package do
     [
       name: :alixir_core,
-      files: ["libs", "mix.exs", "README.md"],
+      files: ["lib", "mix.exs", "README.md"],
       maintainers: ["fahchen"],
       licenses: ["MIT"],
       links: %{"GitHub" => @project_host}
