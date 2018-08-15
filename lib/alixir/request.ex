@@ -30,7 +30,7 @@ defmodule Alixir.Request do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         {:ok, 200, body}
       {:ok, %HTTPoison.Response{body: body, status_code: status_code}} ->
-        {:ok, status_code, body}
+        {:error, status_code, body}
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, reason}
     end
