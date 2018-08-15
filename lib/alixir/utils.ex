@@ -26,6 +26,6 @@ defmodule Alixir.Utils do
   end
 
   def iso_8601_extended_gmt_now do
-    Timex.format!(Timex.now("GMT"), "{ISO:Extended:Z}")
+    Timex.format!(Timex.now("GMT"), "%FT%SZ")
   end
 end
