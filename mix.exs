@@ -2,7 +2,7 @@ defmodule AlixirCore.MixProject do
   use Mix.Project
 
   @project_host "https://github.com/GreenNerd-Labs/alixir_core"
-  @version "0.1.2"
+  @version "0.1.3"
 
   def project do
     [
