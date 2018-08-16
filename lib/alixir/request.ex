@@ -17,7 +17,7 @@ defmodule Alixir.Request do
   def perform(
     %Request{http_method: http_method, url: url, params: params, headers: headers, body: body}
   ) when http_method in ~w{put delete}a do
-    do_perfom(http_method, url, params: List.wrap(params), headers: List.wrap(headers), body: body)
+    do_perfom(http_method, url, body, List.wrap(headers), params: List.wrap(params))
   end
 
   @spec perform(%Request{http_method: :get, url: String.t()}) :: {:ok, status_code, body} | {:error, reason}
@@ -25,8 +25,8 @@ defmodule Alixir.Request do
     do_perfom(:get, url)
   end
 
-  defp do_perfom(method, url, options \\ []) do
-    case HTTPoison.request(method, url, options) do
+  defp do_perfom(method, url, body \\ "", headers \\ [], options \\ []) do
+    case HTTPoison.request(method, url, body, headers, options) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         {:ok, 200, body}
       {:ok, %HTTPoison.Response{body: body, status_code: status_code}} ->
