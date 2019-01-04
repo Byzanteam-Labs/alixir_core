@@ -21,8 +21,8 @@ defmodule Alixir.Request do
   end
 
   @spec perform(%Request{http_method: :get, url: String.t()}) :: {:ok, status_code, body} | {:error, reason}
-  def perform(%Request{http_method: :get, url: url})  do
-    do_perfom(:get, url)
+  def perform(%Request{http_method: http_method, url: url}) when http_method in ~w{put head}a do
+    do_perfom(http_method, url)
   end
 
   defp do_perfom(method, url, body \\ "", headers \\ [], options \\ []) do
