@@ -23,10 +23,10 @@ defmodule Alixir.Utils do
   end
 
   def gmt_now do
-    Timex.format!(Timex.now(), "%a, %d %b %Y %H:%M:%S GMT", :strftime)
+    Calendar.strftime(DateTime.utc_now(), "%a, %d %b %Y %H:%M:%S GMT")
   end
 
   def iso_8601_extended_gmt_now do
-    Timex.format!(Timex.now("GMT"), "%FT%TZ", :strftime)
+    Calendar.strftime(DateTime.utc_now(), "%xT%XZ")
   end
 end

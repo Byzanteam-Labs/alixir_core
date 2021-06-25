@@ -20,7 +20,7 @@ defmodule AlixirCore.MixProject do
 
   def application do
     [
-      extra_applications: [:crypto, :timex]
+      extra_applications: [:crypto]
     ]
   end
 
@@ -28,7 +28,6 @@ defmodule AlixirCore.MixProject do
   defp deps do
     [
       {:httpoison, "~> 1.2.0"},
-      {:timex, "~> 3.3"},
       {:ex_doc, "~> 0.24.2", only: :dev}
     ]
   end
