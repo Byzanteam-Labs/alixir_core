@@ -29,4 +29,10 @@ defmodule Alixir.Utils do
   def iso_8601_extended_gmt_now do
     Calendar.strftime(DateTime.utc_now(), "%xT%XZ")
   end
+
+  def uuid do
+    (:erlang.system_time(:nano_seconds) + :erlang.unique_integer([:monotonic]))
+    |> :erlang.term_to_binary()
+    |> Base.encode16()
+  end
 end
