@@ -29,7 +29,7 @@ defmodule AlixirCore.MixProject do
     [
       {:httpoison, "~> 1.2.0"},
       {:timex, "~> 3.3"},
-      {:ex_doc, "~> 0.18.0", only: :dev}
+      {:ex_doc, "~> 0.24.2", only: :dev}
     ]
   end
 
