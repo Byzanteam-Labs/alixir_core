@@ -14,7 +14,7 @@ defmodule AlixirCore.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
       description: description(),
-      package: package(),
+      package: package()
     ]
   end
 
@@ -30,7 +30,6 @@ defmodule AlixirCore.MixProject do
       {:httpoison, "~> 1.2.0"},
       {:timex, "~> 3.3"},
       {:elixir_uuid, "~> 1.2"},
-
       {:ex_doc, "~> 0.18.0", only: :dev}
     ]
   end

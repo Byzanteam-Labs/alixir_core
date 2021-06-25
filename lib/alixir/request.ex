@@ -10,18 +10,24 @@ defmodule Alixir.Request do
   alias Alixir.Request
 
   @type status_code :: integer
-  @type body :: String.t
-  @type reason :: String.t
+  @type body :: String.t()
+  @type reason :: String.t()
 
   @spec perform(%Request{}) :: {:ok, status_code, body} | {:error, reason}
-  def perform(
-    %Request{http_method: http_method, url: url, params: params, headers: headers, body: body}
-  ) when http_method in ~w{put delete}a do
+  def perform(%Request{
+        http_method: http_method,
+        url: url,
+        params: params,
+        headers: headers,
+        body: body
+      })
+      when http_method in ~w{put delete}a do
     do_perfom(http_method, url, body, List.wrap(headers), params: List.wrap(params))
   end
 
-  @spec perform(%Request{http_method: :get, url: String.t()}) :: {:ok, status_code, body} | {:error, reason}
-  def perform(%Request{http_method: :get, url: url})  do
+  @spec perform(%Request{http_method: :get, url: String.t()}) ::
+          {:ok, status_code, body} | {:error, reason}
+  def perform(%Request{http_method: :get, url: url}) do
     do_perfom(:get, url)
   end
 
@@ -29,8 +35,10 @@ defmodule Alixir.Request do
     case HTTPoison.request(method, url, body, headers, options) do
       {:ok, %HTTPoison.Response{body: body, status_code: 200}} ->
         {:ok, 200, body}
+
       {:ok, %HTTPoison.Response{body: body, status_code: status_code}} ->
         {:error, status_code, body}
+
       {:error, %HTTPoison.Error{reason: reason}} ->
         {:error, reason}
     end
