@@ -8,7 +8,7 @@ by adding `alixir_core` to your list of dependencies in `mix.exs`:
 ```elixir
 def deps do
   [
-    {:alixir_core, "~> 0.1.0"}
+    {:alixir_core, "~> 0.2.0"}
   ]
 end
 ```
