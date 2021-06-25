@@ -29,8 +29,4 @@ defmodule Alixir.Utils do
   def iso_8601_extended_gmt_now do
     Timex.format!(Timex.now("GMT"), "%FT%TZ", :strftime)
   end
-
-  def uuid do
-    UUID.uuid4()
-  end
 end
