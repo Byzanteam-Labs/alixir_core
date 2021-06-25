@@ -20,7 +20,7 @@ defmodule AlixirCore.MixProject do
 
   def application do
     [
-      extra_applications: [:timex]
+      extra_applications: [:crypto, :timex]
     ]
   end
 

@@ -8,7 +8,7 @@ defmodule Alixir.Utils do
   ]
 
   def sign(string_to_sign, key) do
-    :crypto.hmac(:sha, key, string_to_sign) |> encode64()
+    :hmac |> :crypto.mac(:sha, key, string_to_sign) |> encode64()
   end
 
   # POP 协议签名算法
